@@ -5,6 +5,9 @@ const db = require("./db");
 const bodyParse = require("body-parser");
 const Menu = require("./model/menuSchema");
 app.use(bodyParse.json());
+require('dotenv').config();
+
+const PORT = process.env.PORT || 3001;
 
 app.get("/", (req, res) => {
     res.json("Welcome to my home page ")
@@ -25,6 +28,6 @@ app.use("/menu", menuRoute);
 
 
 
-app.listen(3001, () => {
+app.listen(PORT, () => {
     console.log("App is listen on 3001")
 })
